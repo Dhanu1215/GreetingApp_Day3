@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.UserDto;
 import com.example.demo.model.Greeting;
 import com.example.demo.service.IGreetingService;
 
@@ -59,5 +61,10 @@ public class GreetingController {
 	@GetMapping("/service")
 	public Greeting greeting() {
 	     return greetingService.greetingMessage();
+	}
+	
+	@PostMapping("/greet")
+	public String greetingMessage(@RequestBody UserDto userDto) {
+		return greetingService.gettingMessageByName(userDto);
 	}
 }
