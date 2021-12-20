@@ -14,6 +14,7 @@ import com.example.demo.model.Greeting;
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
+	
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 	
