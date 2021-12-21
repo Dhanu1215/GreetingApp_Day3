@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.Greeting;
+import com.example.demo.repository.GreetingRepository;
 import com.example.demo.service.IGreetingService;
+
 
 @RestController
 @RequestMapping("/greeting")
@@ -58,13 +62,15 @@ public class GreetingController {
 	@Autowired
 	private IGreetingService greetingService;
 	
+	
 	@GetMapping("/service")
 	public Greeting greeting() {
 	     return greetingService.greetingMessage();
 	}
 	
 	@PostMapping("/greet")
-	public String greetingMessage(@RequestBody UserDto userDto) {
+	public String greetingMessageByName(@RequestBody UserDto userDto) {
 		return greetingService.gettingMessageByName(userDto);
 	}
+	
 }
