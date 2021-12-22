@@ -15,4 +15,5 @@ public interface IGreetingService {
 	Greeting findById(long messId);
 	List<Greeting> getMessages();
 	Greeting editMessage(Greeting greeting);
+	Greeting deleteMessage(Long messId);
 }
