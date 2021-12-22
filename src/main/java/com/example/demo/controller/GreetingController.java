@@ -90,4 +90,11 @@ public class GreetingController {
 		return this.greetingService.getMessages();
 	}
 	
+	/**
+	 * Call method to edit message
+	 */
+	@PutMapping("/services")
+	public Greeting editMessage(Greeting greeting) {
+		return this.greetingService.editMessage(greeting);
+	}
 }

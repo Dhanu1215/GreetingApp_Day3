@@ -50,5 +50,13 @@ public class GreetingService implements IGreetingService {
 	public List<Greeting> getMessages() {
 		return greetingRepository.findAll();
 	}
+
+	/**
+	 * Call method to edit message
+	 */
+	@Override
+	public Greeting editMessage(Greeting greeting) {
+		return greetingRepository.save(new Greeting(2,"Hello World..."));
+	}
 	 
 }
