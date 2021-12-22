@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -73,9 +74,20 @@ public class GreetingController {
 		return greetingService.gettingMessageByName(userDto);
 	}
 	
+	 /**
+	  * Call method to find the message by message Id
+	  */
 	@GetMapping("/service/{messId}")
 	public Greeting findById(@PathVariable String messId) {
 		return this.greetingService.findById(Long.parseLong(messId));
+	}
+	
+	/**
+	 * Call method to list all the messages
+	 */
+	@GetMapping("/services")
+	public List<Greeting>getMessages(){
+		return this.greetingService.getMessages();
 	}
 	
 }
